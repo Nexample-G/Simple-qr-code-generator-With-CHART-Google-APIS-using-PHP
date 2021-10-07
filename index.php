@@ -2,7 +2,7 @@
 /* 
  *  Simple qr code generator With CHART Google APIS using PHP
  *  PHP Tutorial - https://www.youtube.com/c/nexample
- *  GitHub - https://github.com/Nexample-G/
+ *  GitHub - https://github.com/Nexample-G/Simple-qr-code-generator-With-CHART-Google-APIS-using-PHP
  *  Dev: Nexample info.nexample@gmail.com
  *  Date: 10/8/2021 
  */
