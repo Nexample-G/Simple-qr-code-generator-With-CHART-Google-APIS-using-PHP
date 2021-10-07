@@ -2,6 +2,7 @@
 /* 
  *  Simple qr code generator With CHART Google APIS using PHP
  *  PHP Tutorial - https://www.youtube.com/c/nexample
+ *  YouTube Video - https://youtu.be/duG1hhyqHmU
  *  GitHub - https://github.com/Nexample-G/Simple-qr-code-generator-With-CHART-Google-APIS-using-PHP
  *  Dev: Nexample info.nexample@gmail.com
  *  Date: 10/8/2021 
@@ -33,8 +34,7 @@ html,body {
 	content:"CREATE ONE QR WITH NEXAMPLE";
 	color: rgba(21,160,246, 0.7);
 	font:bold 16px/20px "Liberation sans", Arial, Helvetica, sans-serif;
-}
-li {	margin:5px 0px;
+}li {	margin:5px 0px;
 	width: 380px;
 	height: auto; 
 	float:left;
@@ -86,9 +86,7 @@ echo '.img{
 	font:bold 16px/20px "Liberation sans", Arial, Helvetica, sans-serif;
 }
 .text{border-bottom:solid 1px rgba(255,0,0, 0.3);
-}
-';
-}
+}';}
 }else{
 echo '.img{
 	height: auto; 
@@ -98,11 +96,7 @@ echo '.img{
 	content:"Enter Some Text Or URL !";
 	color: rgba(255,0,0, 0.3);
 	font:bold 16px/20px "Liberation sans", Arial, Helvetica, sans-serif;
-}';
-}}
-
-
-}else{
+}';}}}else{
 if(isset($_POST['QR'])){
 	if ($_POST['QR'][3]){
 	$QR=0;
@@ -112,8 +106,7 @@ if(!empty($_POST['QR'][0])){
 	$QR.='&cht=qr&chl='.$_POST['QR'][0].'&choe=UTF-8';
 	$DRI=$DR.'.tmp';$DRT=$QR;
 	$_SESSION['QR']=array($_POST['QR'][1],$_POST['QR'][0]);
-}}
-if ($_POST['QR'][4]){
+}}if ($_POST['QR'][4]){
 	if(isset($_SESSION['QR'])){
 if (file_exists($DR.'.tmp')){
 	$iname = preg_replace("/[^0-9 A-Za-z]/",'',$_POST['QR'][2]);
@@ -121,16 +114,12 @@ if (file_exists($DR.'.tmp')){
 	$iname='unknown'.date('h-i-A-d-m-Y');
 }	$DRT=$DR.'.tmp';
 	$DRI=$DR.$iname.'.png';
-	}
-	}}
+	}}}
 	file_put_contents($DRI, 
 	file_get_contents($DRT));
 	header('location: http://'.$_SERVER['HTTP_HOST']);
-}else{
-	$url=$qsz='';
-?>
-
-<!DOCTYPE html><html lang="en-US">
+}else{	$url=$qsz='';
+?><!DOCTYPE html><html lang="en-US">
 <head>
 	<title><?=$_TITLE;?></title>
 	<meta charset="utf-8">
@@ -140,23 +129,13 @@ if (file_exists($DR.'.tmp')){
 	<link rel="icon" href="<?=$DR;?>/favicon.png" type="image/x-icon">
 	<style>@import url("/?css");</style>
 </head><body>
-
-
-</body></html>
-
-
-<?php
-
-	echo '<ul><li class="img">';
+<?php	echo '<ul><li class="img">';
 if(isset($_SESSION['QR'])){
 	$url=$_SESSION['QR'][1];
 if($_SESSION['QR'][0]){
 	$qsz=$_SESSION['QR'][0];
-}
-}
-	echo '</li>';
-?> 
-<form method="post" autocomplete="off">
+}}	echo '</li>';
+?> <form method="post" autocomplete="off">
 	<li><input type="text" class="text" name="QR[]" placeholder="Enter Your QR Text or URL Here" value="<?=$url;?>">
 	<select name="QR[]">
 		<option value="<?=($qsz ? $qsz : 200)?>"><?=($qsz ? $qsz : 200)?> PX</option>
@@ -169,5 +148,6 @@ if($_SESSION['QR'][0]){
 	<input type="submit" name="QR[]"  value="Save"></li>
 </form>
 </ul>
+</body></html>
 <?php }}?> 
 
